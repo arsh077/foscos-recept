@@ -15,8 +15,7 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
             {/* A4 Paper Simulation */}
             <div
                 id="receipt-preview"
-                // Added border-2 border-fssai (teal) to put a border around the whole invoice
-                className="bg-white w-[210mm] min-h-[297mm] shadow-2xl p-[10mm] relative text-[11pt] leading-snug text-gray-900 border-2 border-[#008080]"
+                className="bg-white w-[210mm] min-h-[297mm] shadow-2xl p-[10mm] relative text-[11pt] leading-snug text-gray-900"
                 style={{ fontFamily: 'Arimo, Arial, sans-serif' }}
             >
 
