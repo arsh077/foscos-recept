@@ -1,0 +1,5 @@
+{
+  "name": "FoSCoS Receipt Generator",
+  "description": "A replica generator for FSSAI/FoSCoS receipts with editable fields and dynamic QR code generation.",
+  "requestFramePermissions": []
+}
