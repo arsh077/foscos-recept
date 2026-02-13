@@ -1,5 +1,4 @@
 import React from 'react';
-import QRCode from 'react-qr-code';
 import { InvoiceData } from '../types';
 
 interface InvoicePreviewProps {
@@ -24,11 +23,11 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
                 {/* Header Section */}
                 <div className="flex justify-between items-start mb-4">
                     {/* FSSAI Logo */}
-                    <div className="w-24 h-24 flex flex-col items-center justify-center">
+                    <div className="w-32 h-32 flex flex-col items-center justify-center">
                         <img
                             src="/images/fssai-logo.png"
                             alt="FSSAI Logo"
-                            className="w-20 h-20 object-contain"
+                            className="w-32 h-32 object-contain"
                             onError={(e) => {
                                 // Fallback to placeholder if image not found
                                 e.currentTarget.style.display = 'none';
@@ -36,8 +35,8 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
                             }}
                         />
                         {/* Fallback placeholder if image is not available */}
-                        <div className="hidden relative w-20 h-16">
-                            <div className="text-4xl font-bold text-orange-500 italic font-serif" style={{ transform: 'scaleY(1.5)' }}>fssai</div>
+                        <div className="hidden relative w-32 h-24">
+                            <div className="text-5xl font-bold text-orange-500 italic font-serif" style={{ transform: 'scaleY(1.5)' }}>fssai</div>
                             <div className="h-1 bg-green-600 w-full mt-1 rounded-full"></div>
                             <div className="h-1 bg-orange-400 w-3/4 mt-1 rounded-full mx-auto"></div>
                         </div>
@@ -53,11 +52,11 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
                     </div>
 
                     {/* State Government Emblem */}
-                    <div className="w-24 h-24 flex flex-col items-center justify-center">
+                    <div className="w-32 h-32 flex flex-col items-center justify-center">
                         <img
                             src="/images/state-emblem.png"
                             alt={`${data.state} Government Emblem`}
-                            className="w-20 h-20 object-contain"
+                            className="w-32 h-32 object-contain"
                             onError={(e) => {
                                 // Fallback to placeholder if image not found
                                 e.currentTarget.style.display = 'none';
@@ -65,8 +64,8 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
                             }}
                         />
                         {/* Fallback placeholder if image is not available */}
-                        <div className="hidden w-20 h-20 rounded-full border-2 border-blue-900 flex items-center justify-center p-1">
-                            <div className="text-center text-[8px] font-bold text-blue-900 uppercase">
+                        <div className="hidden w-32 h-32 rounded-full border-2 border-blue-900 flex items-center justify-center p-1">
+                            <div className="text-center text-[10px] font-bold text-blue-900 uppercase">
                                 {data.state}<br />
                                 Govt.<br />
                                 Emblem
@@ -103,32 +102,18 @@ export const InvoicePreview: React.FC<InvoicePreviewProps> = ({ data }) => {
                         <span className="flex-1">{data.licenseCategory}</span>
                     </div>
 
-                    {/* Row 3 - Address with QR Code */}
-                    {/* Added relative positioning to containing div for absolute QR placement */}
-                    <div className="w-full mb-5 flex items-start relative mt-2">
+                    {/* Row 3 - Address */}
+                    <div className="w-full mb-5 flex items-start mt-2">
                         <span className={labelClassLeft}>Premises Address:</span>
-                        <div className="flex-1 pr-32">
+                        <div className="flex-1">
                             {data.address}
-                        </div>
-                        {/* QR Code Positioned Here - adjusted top/right to match screenshot */}
-                        <div className="absolute top-0 right-0">
-                            <QRCode
-                                value={JSON.stringify({
-                                    ref: data.refNo,
-                                    amt: data.totalFee,
-                                    txn: data.transactionNo,
-                                    comp: data.companyName
-                                })}
-                                size={90}
-                                level="M"
-                            />
                         </div>
                     </div>
 
                     {/* Row 4 - Kind of Business */}
                     <div className="w-full mb-3 flex items-start">
                         <span className={labelClassLeft}>Kind of Business:</span>
-                        <div className="flex-1 pr-32">
+                        <div className="flex-1">
                             {data.kindOfBusiness}
                         </div>
                     </div>
